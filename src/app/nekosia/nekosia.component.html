@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="flex flex-wrap justify-center gap-2 mt-4">
+    <button *ngFor="let category of categories" (click)="fetchImage(category)"
+        class="rounded bg-pink-500 text-white font-bold p-2">
+        {{ category }}
+    </button>
+</div>
+
+<div class="flex flex-wrap justify-center gap-4 mt-6">
+    <div *ngFor="let image of images" class="flex flex-col items-center">
+        <img [src]="image.url" alt="Nekosia Image"
+            class="max-w-96 max-h-96 object-cover shadow-2xl shadow-[#CDBBC2]" />
+        <p class="mt-2 text-sm font-semibold text-gray-700">{{ image.character }}</p>
+    </div>
+</div>
+
+<div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div>
